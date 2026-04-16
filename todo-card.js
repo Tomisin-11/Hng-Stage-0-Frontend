@@ -2,8 +2,8 @@
     const COLLAPSE_THRESHOLD = 160;
 
     let state = {
-      title:       'Redesign the onboarding flow',
-      description: 'Revisit the entire new-user onboarding experience — from sign-up through the first meaningful action. Audit current drop-off analytics, map friction points, prototype revised copy and microcopy, coordinate with the design system team to align component usage, and A/B test at least two variants before shipping. Stakeholder sign-off is required before handoff to engineering.',
+      title:       'HNG Stage-1 Task',
+      description: 'Submission of HNG Stage-1 Task. Due on the 17th of April. Due time/date: 17/04/2026, 11:59pm Task requirements: In Stage 1, you will extend your Stage 0 Todo Card into a more interactive, stateful, and slightly more “app-like” component. You are still building a single Todo Card, not a full app. The card should now support: Editable content Status transitions Priority changes Expand / collapse behavior More dynamic time handling Slightly richer accessibility patterns',
       priority:    'High',
       status:      'Pending',
       dueDate:     null,
