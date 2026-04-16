@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Todo Card — Stage 1a</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="todo-card.css">
+    
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>  <em>Task</em> Card</h1>
+  </header>
+
+  <div class="card-wrapper">
+    <article
+      class="todo-card"
+      id="todo-card"
+      data-priority="High"
+      data-testid="test-todo-card"
+      role="article"
+      aria-label="Todo task card"
+    >
+      <svg class="card-flourish" viewBox="0 0 80 80" fill="none">
+        <circle cx="80" cy="0" r="70" stroke="#4E7C59" stroke-width="18"/>
+      </svg>
+
+      <div class="priority-strip" role="presentation"></div>
+
+      <div class="card-top-bar">
+        <div class="checkbox-wrap">
+          <input
+            type="checkbox"
+            class="todo-checkbox"
+            id="todo-checkbox"
+            data-testid="test-todo-checkbox"
+            aria-label="Mark task as done"
+          />
+        </div>
+
+        <div class="title-area">
+          <h2 class="todo-title" data-testid="test-todo-title" id="todo-title-text">
+            Redesign the onboarding flow
+          </h2>
+          <span
+            class="priority-badge"
+            data-testid="test-todo-priority-indicator"
+            aria-label="Priority: High"
+            id="priority-badge-display"
+          >
+            <span class="priority-dot"></span>
+            <span id="priority-label-text">High</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="collapsible-outer">
+          <div
+            class="collapsible-section collapsed"
+            id="collapsible-section"
+            data-testid="test-todo-collapsible-section"
+            aria-live="polite"
+          >
+            <p class="todo-description" data-testid="test-todo-description" id="todo-description-text">
+              Revisit the entire new-user onboarding experience — from sign-up through the first meaningful action. Audit current drop-off analytics, map friction points, prototype revised copy and microcopy, coordinate with the design system team to align component usage, and A/B test at least two variants before shipping. Stakeholder sign-off is required before handoff to engineering.
+            </p>
+          </div>
+
+          <button
+            class="expand-toggle"
+            id="expand-toggle"
+            data-testid="test-todo-expand-toggle"
+            aria-expanded="false"
+            aria-controls="collapsible-section"
+          >
+            <span id="expand-toggle-label">Show more</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="2 5 7 10 12 5"/>
+            </svg>
+          </button>
+        </div>
+
+        
+
+      <div class="card-meta" data-testid="test-todo-meta">
+        <div class="status-wrap" data-testid="test-todo-status-display">
+          <label for="status-control" class="sr-only">Task status</label>
+          <select
+            class="status-control"
+            id="status-control"
+            data-testid="test-todo-status-control"
+            aria-label="Task status"
+            data-val="High"
+          >
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+          </select>
+        </div>
+
+        <div class="time-display" data-testid="test-todo-time-display" aria-live="polite" aria-atomic="true">
+          <span class="overdue-indicator" data-testid="test-todo-overdue-indicator" role="status" aria-label="Task overdue">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="currentColor" aria-hidden="true">
+              <path d="M5.5 0a5.5 5.5 0 1 0 0 11A5.5 5.5 0 0 0 5.5 0zm.5 7.5h-1V5h1v2.5zm0-3.5h-1V3h1v1z"/>
+            </svg>
+            Overdue
+          </span>
+
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="6.5" cy="6.5" r="5.5"/>
+            <polyline points="6.5 3.5 6.5 6.5 8.5 7.8"/>
+          </svg>
+          <span class="time-text" id="time-remaining-text" data-testid="test-todo-time-remaining">Calculating…</span>
+        </div>
+      </div>
+
+      <div class="card-actions" data-testid="test-todo-actions">
+        <button class="btn btn-edit" id="edit-btn" data-testid="test-todo-edit-button" aria-label="Edit task">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 1.5l2.5 2.5L4 11.5H1.5V9L9 1.5z"/>
+          </svg>
+          Edit
+        </button>
+
+        <button class="btn btn-delete" id="delete-btn" data-testid="test-todo-delete-button" aria-label="Delete task">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="2 3.5 11 3.5"/>
+            <path d="M4.5 3.5V2.5h4v1"/>
+            <rect x="2.5" y="3.5" width="8" height="7.5" rx="1.2"/>
+            <line x1="5.5" y1="6" x2="5.5" y2="8.8"/>
+            <line x1="7.5" y1="6" x2="7.5" y2="8.8"/>
+          </svg>
+          Delete
+        </button>
+      </div>
+
+      <div
+        class="edit-form-container"
+        id="edit-form-container"
+        data-testid="test-todo-edit-form"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Edit task form"
+      >
+        <div class="form-header">
+          <span class="form-header-dot" aria-hidden="true"></span>
+          <h3>Edit Task</h3>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="edit-title">Title</label>
+            <input
+              type="text"
+              id="edit-title"
+              data-testid="test-todo-edit-title-input"
+              placeholder="Task title…"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <label for="edit-description">Description</label>
+            <textarea
+              id="edit-description"
+              data-testid="test-todo-edit-description-input"
+              placeholder="Add more detail…"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div class="form-row-2">
+            <div class="field">
+              <label for="edit-priority">Priority</label>
+              <select
+                id="edit-priority"
+                data-testid="test-todo-edit-priority-select"
+                aria-label="Task priority"
+              >
+                <option value="Low">🔵 Low</option>
+                <option value="Medium">🟡 Medium</option>
+                <option value="High" selected>🔴 High</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="edit-due-date">Due Date</label>
+              <input
+                type="datetime-local"
+                id="edit-due-date"
+                data-testid="test-todo-edit-due-date-input"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-save" id="save-btn" data-testid="test-todo-save-button">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="2 7 5.5 10 11 3"/>
+            </svg>
+            Save Changes
+          </button>
+          <button class="btn btn-cancel" id="cancel-btn" data-testid="test-todo-cancel-button">
+            Cancel
+          </button>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <style>
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border-width: 0;
+    }
+  </style>
+
+  <script src="todo-card.js"></script>
+</body>
+</html>
